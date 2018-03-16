@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<title>happy</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<script src="./js/jquery/jquery-3.2.0.min.js"></script>
+</head>
+<script>
+	var html = document.querySelector('html');
+	html.style.fontSize = html.offsetWidth /3.75 + "px";
+	window.onresize = function () {
+		var html = document.querySelector('html');
+		html.style.fontSize = html.offsetWidth /3.75 + "px";
+	}
+</script>
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper clearfix">
+			<div class="swiper-slide">
+				<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+					<img src="images/hbd.jpg" alt="" class="hbd">
+				</p>
+			</div>
+			<div class="swiper-slide">
+				<p class="ani sl" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">一</p>
+			</div>
+			<div class="swiper-slide">
+				<p class="ani sl" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">直</p>
+			</div>
+			<div class="swiper-slide">
+				<p class="ani sl" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">都</p>
+			</div>
+			<div class="swiper-slide">
+				<p class="ani sl" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">在</p>
+			</div>
+		</div>
+		<!-- 如果需要分页器 -->
+		<div class="swiper-pagination"></div>
+	</div>
+	<img src="images/musicpicker.png" class="walkman">
+	<!-- music -->
+	<audio preload="preload" controls id="audio" src="wedding.mp3"  id="music2" loop></audio>
+</body>
+<!-- 必须加在微信api资源 -->
+<script src="js/swiper.min.js"></script>
+<script src = "js/swiper.animate1.0.3.min.js"></script>
+<script>
+	var $ = jQuery;
+	// 可视屏幕的高度
+	var clientHeight = (document.documentElement.clientHeight)/200;
+	console.log(clientHeight);
+	// $(".swiper-slide").css({"height":clientHeight+'rem'});
+	//Swiper4.x
+	var mySwiper = new Swiper ('.swiper-container', {
+		direction: 'vertical',
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		on:{
+			init: function(){
+		        swiperAnimateCache(this); //隐藏动画元素 
+		        swiperAnimate(this); //初始化完成开始动画
+	    	}, 
+		    slideChangeTransitionEnd: function(){ 
+		        swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+		    } 
+
+		}
+	}) 
+
+	Media= $('audio')[0];
+    Media.src = "wedding.mp3"; 
+    // console.log(music)
+    Media.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+    	Media.play();
+    }, false);
+
+    $(".walkman").on('click',function(){
+    	if(Media.paused){
+            Media.play();
+        }else{
+            Media.pause();
+        }
+    })
+
+</script>
+</html>

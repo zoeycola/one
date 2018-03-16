@@ -1,0 +1,35 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    background: #29232f;
+    position: relative;
+}
+.swiper-slide{
+	width: 100%;
+	height: 100%;
+	background:#29232f;
+	/*background: url(../images/bg3.jpeg) no-repeat left top;
+    background-size: 100% 100%;*/
+}
+.swiper-slide p{
+	text-align: center;
+}
+.swiper-slide p.sl{
+	margin-top: 2rem;
+}
+.swiper-slide .hbd{
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide span{
+	font-size: .18rem;
+	color: #fff;
+}
+.walkman{
+	 width: .5rem;
+    height: .5rem;
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    z-index: 9;
+}
